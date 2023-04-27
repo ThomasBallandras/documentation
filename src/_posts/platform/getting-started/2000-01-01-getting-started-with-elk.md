@@ -67,6 +67,15 @@ environment variables `USER` and `PASSWORD` should be set first:
 $ scalingo --app my-awesome-logstash env-set USER=my-awesome-logstash-user PASSWORD=iloveunicorns
 ```
 
+By default, version 6.8.21 will be installed. You can change the Logstash version by setting the `LOGSTASH_VERSION` variable:
+
+```bash
+$ scalingo --app my-awesome-logstash env-set LOGSTASH_VERSION="7.2.0"
+```
+Replace the version number accordingly.
+
+Note: You shouldn't install a version higher than the [supported Elasticsearch version](https://doc.scalingo.com/changelog).
+
 Logstash is greedy in memory, it requires at least a container of size L, configure the app to use one.
 
 ```bash
@@ -175,6 +184,14 @@ Logstash application should be used in the deployment process:
 ```
 scalingo --app my-awesome-logstash env | grep SCALINGO_ELASTICSEARCH_URL
 ```
+By default, version 6.8.21 will be installed. You can change the Kibana version by setting the `KIBANA_VERSION` variable:
+
+```bash
+$ scalingo --app my-awesome-kibana env-set KIBANA_VERSION="7.2.0"
+```
+Replace the version number accordingly.
+
+Note: You shouldn't install a version higher than the [supported Elasticsearch version](https://doc.scalingo.com/changelog).
 
 Then, a username and a password should be defined to configure Kibana authentication.
 
